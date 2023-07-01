@@ -1,26 +1,28 @@
 #!/bin/bash
 
+echo "start ~/.xsession script - $(date)" >>/home/jvh/mylog
+echo $PATH >>/home/jvh/mylog
+
 # initialize terminal
 [ -f ~/.profile ] && . "$HOME"/.profile
 
 # setup monitors the way I like them.
-xrandr -s 1920x1080 &   
+xrandr -s 1920x1080 &
 
 # restore current wallpaper
-nitrogen --restore      
+nitrogen --restore
 
 # start dunst notification daemon
-#dunst &                 
+#dunst &
 
 # launch picom (formerly compton) to get transparency working
-picom &                 
+picom &
 
 # provides extended privileges to applications.
-#lxpolkit &              
+#lxpolkit &
 
 # status-bar for dwm
-#slstatus &
-~/.config/suckless/scripts/dwm_bar.sh &
+~/.scripts/dwm_bar.sh &
 
 # Finally, we start a window manager.  We want quitting the
 # window manager to end the session, so this command does not

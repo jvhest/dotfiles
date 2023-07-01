@@ -7,12 +7,10 @@
 # EG: the ls command is aliased, but to use the normal ls command you would type \ls
 
 # Alias's for multiple directory listing commands alias ls="exa"		# add colors and file type extensions
-alias lsa="exa -a"	# show hidden files
-alias ll="exa -l --group-directories-first"	# long listing format
-alias lla="exa -la --group-directories-first"	# long listing format
-alias ld="exa -Dl"	# directories only long
-alias lt="exa -T"	# tree short
-alias ltd="exa -TD"	# tree directories only short
+alias ls="exa --group-directories-first"     # show hidden files
+alias ll="exa -la --group-directories-first" # long listing format
+alias tt="exa -T"                            # tree short
+alias td="exa -TD"                           # tree directories only short
 
 # Edit this .bashrc file
 alias ebrc='edit ~/.bashrc'
@@ -33,27 +31,11 @@ alias vi='nvim'
 alias svi='sudo vi'
 alias vis='nvim "+set si"'
 
-# Change directory aliases
-alias home='cd ~'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
 # cd into the old directory
 alias bd='cd "$OLDPWD"'
 
 # Remove a directory and all files
 alias rmd='/bin/rm  --recursive --force --verbose '
-
-# alias chmod commands
-alias mx='chmod a+x'
-alias 000='chmod -R 000'
-alias 644='chmod -R 644'
-alias 666='chmod -R 666'
-alias 755='chmod -R 755'
-alias 777='chmod -R 777'
 
 # Search command line history
 alias h="history | grep "
@@ -105,4 +87,3 @@ alias clickpaste='sleep 3; xdotool type "$(xclip -o -selection clipboard)"'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
